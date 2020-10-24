@@ -1,3 +1,4 @@
+# coding: utf-8
 L=[x for x in range(1,10)]
 #pierwszy sposób
 napis=""
