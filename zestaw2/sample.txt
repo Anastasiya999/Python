@@ -1,0 +1,13 @@
+afile = open(file_name, mode)
+# file_name (string): nazwa pliku;
+# mode (string):
+# "r" (czytanie),
+# "w" (pisanie; kasowanie poprzedniej zawartości; utworzy plik, gdy nie istniał),
+# "a" (dopisywanie; poprzednia zawartość pozostaje), 
+# "r+" (czytanie i pisanie; poprzednia zawartość pozostaje),
+# "w+" (czytanie i pisanie; kasowanie poprzedniej zawartości),
+# "a+" (czytanie i pisanie; poprzednia zawartość pozostaje),
+# "b" (dodatek do poprzednich, tryb binarny, Windows, Macintosh),
+# "U" (dodatek do poprzednich, uniwersalny translator nowych wierszy).
+dir(afile)     # spis metod
+afile.close()

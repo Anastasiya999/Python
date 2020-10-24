@@ -1,0 +1,3 @@
+afile = open(file_name, mode)
+dir(afile)     
+afile.close()
