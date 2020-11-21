@@ -30,7 +30,7 @@ class Triangle:
         a2=self.pt2.x*(self.pt1.y-self.pt3.y)
         a3=self.pt3.x*(self.pt1.y-self.pt2.y)
         A=a1-a2+a3
-        P=(self.pt1.x*self.pt2.y+self.pt2.x*self.pt3.y+self.pt3.x*self.pt1.y-self.pt1.x*self.pt3.y-self.pt2.x*self.pt1.y-self.pt3.x*self.pt2.y)/2
+       # P=(self.pt1.x*self.pt2.y+self.pt2.x*self.pt3.y+self.pt3.x*self.pt1.y-self.pt1.x*self.pt3.y-self.pt2.x*self.pt1.y-self.pt3.x*self.pt2.y)/2
         return math.fabs(A/2)
 
     def move(self, x, y):     # przesunięcie o (x, y)

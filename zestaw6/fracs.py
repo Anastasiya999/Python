@@ -6,6 +6,7 @@ class Frac:
         self.x = x
         self.y = y
         self.simplify()
+        self.check_zeroDiv()
 
     def __str__(self):        # zwraca "x/y" lub "x" dla y=1
         if self.y==1:
@@ -48,17 +49,17 @@ class Frac:
         x=self.x*other.y+other.x*self.y
         y=self.y*other.y
         
-        return Frac(x,y).check_zeroDiv()
+        return Frac(x,y)
 
     def __sub__(self, other):  # frac1 - frac2
         x=self.x*other.y-other.x*self.y
         y=self.y*other.y
-        return Frac(x,y).check_zeroDiv()
+        return Frac(x,y)
 
     def __mul__(self, other):   # frac1 * frac2
         x=self.x*other.x
         y=self.y*other.y
-        return Frac(x,y).check_zeroDiv()
+        return Frac(x,y)
 
 
     def __truediv__(self, other):  # frac1 / frac2
@@ -94,6 +95,5 @@ class Frac:
     def check_zeroDiv(self):
         if self.y==0:
             raise ZeroDivisionError
-        else:
-            return self
+        
 
