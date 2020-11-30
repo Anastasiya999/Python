@@ -22,6 +22,8 @@ class TestTriangle(unittest.TestCase):
         self.assertTrue(self.tr1!=self.tr2)
         self.assertFalse(self.tr1!=self.tr1)
 
+        self.assertTrue(Triangle(-2, 0, 0, 4, 3, 0)==Triangle(0, 4, -2, 0, 3, 0))
+
         
     def test_center(self):
         self.assertEqual(self.tr1.center(),self.center_tr1 )

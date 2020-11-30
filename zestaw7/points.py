@@ -3,7 +3,7 @@ class Point:
     """Klasa reprezentująca punkty na płaszczyźnie."""
 
     def __init__(self, x, y):  # konstuktor
-        if  not ((isinstance(x, int) or isinstance(x, float)) or (isinstance(y, int) or isinstance(y, float))):
+        if  not ((isinstance(x, int) or isinstance(x, float)) and (isinstance(y, int) or isinstance(y, float))):
             raise TypeError("Podaleś niepoprawny typ punktu")
         self.x = float(x)
         self.y = float(y) 
