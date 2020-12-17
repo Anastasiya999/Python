@@ -101,19 +101,49 @@ class CyclicList:
                 current = None
                 self.length -=1        
                 
-    def merge(self, other):   # scalanie dwóch list cyklicznych w czasie O(1)
-        tail = self.head.prev
-        tail_other = other.head.prev
+   #      wersja pierwsza            
+   # def merge(self, other):   # scalanie dwóch list cyklicznych w czasie O(1)
+   #     tail = self.head.prev
+   #     tail_other = other.head.prev
+   #     tail.next = other.head
+   #     other.head.prev = tail
+   #     tail_other.next = self.head
+   #     self.head.prev = tail_other
 
-        tail.next = other.head
-        other.head.prev = tail
-        tail_other.next = self.head
-        self.head.prev = tail_other
 
+   # wersja poprawiona
+    def merge(self, other):
+        if self is other:
+            pass
+        elif self.head is None and other.head is not None:
+            self.head = other.head
+        elif other.head is None and self.head is not None:
+            pass
+        elif self.head is None and other.head is None:
+            pass
+        else:
+            tail = self.head.prev
+            tail_other = other.head.prev
+            tail.next = other.head
+            other.head.prev = tail
+            tail_other.next = self.head
+            self.head.prev = tail_other
 
-    def clear(self):     # czyszczenie listy
-        self.head = None
-    
+        other.head = None
+        self.length += other.length
+
+                
+
+   #wersja pierwsza 
+   # def clear(self):     # czyszczenie listy
+   #     self.head = None
+
+   #wersja poprawiona
+    def clear(self):
+        i = self.length
+        for j in range(i):
+            self.remove(self.head)
+
 
 
 class TestCyclicList(unittest.TestCase):
@@ -154,6 +184,9 @@ class TestCyclicList(unittest.TestCase):
         self.assertEqual(self.clist.head,self.nodes[3])
 
     def test_merge(self):
+        self.clist.merge(self.clist2)
+        self.assertEqual(self.clist.count(),self.clist2.count())
+
         self.clist.insert_head(self.nodes[0])
         self.clist.insert_tail(self.nodes[1])
 
@@ -163,6 +196,18 @@ class TestCyclicList(unittest.TestCase):
         self.clist.merge(self.clist2)
         self.assertEqual(self.clist.head, self.nodes[0])
         self.assertEqual(self.clist.head.prev, self.nodes[3])
+
+        clist3 = CyclicList()
+        clist3.merge(self.clist)
+        self.assertEqual(clist3.count(), 4)
+        self.assertEqual(self.clist.head, None)
+
+        clist4 = CyclicList()
+        clist3.merge(clist4)
+        self.assertEqual(clist3.count(), 4)
+        self.assertEqual(clist4.head, None)
+
+
 
     def tearDown(self): pass
         

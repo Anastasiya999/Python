@@ -75,7 +75,7 @@ class TestBST(unittest.TestCase):
         self.root.insert(Node(5))
         self.root.insert(Node(6))
 
-    def test_bst_min(self):
+    def test_bst_min(self): 
         self.assertEqual(bst_min(self.root).data,5)
 
     def test_bst_max(self):
